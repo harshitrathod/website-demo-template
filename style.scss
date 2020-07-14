@@ -1,0 +1,256 @@
+$primary-color: #ffffff;
+$primary-color-light: #ffffff;
+$primary-color-dark: #cccccc;
+$secondary-color: #6c63ff;
+$secondary-color-light: #a491ff;
+$secondary-color-dark: #2838cb;
+$primary-text-color: #384235;
+$secondary-text-color: #ffffff;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", Arial, serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+// nav Scss
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.logo {
+  flex-grow: 5;
+  color: $secondary-color;
+}
+
+.menu {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $secondary-color;
+  font-weight: 550;
+  a {
+    &:hover {
+      font-weight: 550;
+      text-decoration: underline;
+      color: $secondary-color-dark;
+    }
+  }
+}
+
+.userAction {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-Primary {
+  color: $secondary-text-color;
+  background-color: $secondary-color;
+  display: flex;
+  align-items: center;
+  border-radius: 1.2em;
+  margin: 0 0 0 15px;
+  font-size: 15px;
+  padding: 0 15px;
+  height: 2.5em;
+  font-weight: 500;
+  &:hover {
+    box-shadow: inset 0 0 0 1px $secondary-color,
+      0 4px 10px rgba(164, 145, 255, 0.226), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.btn-Secondary {
+  @extend .btn-Primary;
+  color: $secondary-color;
+  background-color: $primary-color;
+  box-shadow: inset 0 0 0 1px $secondary-color;
+  &:hover {
+    box-shadow: inset 0 0 0 3px;
+  }
+}
+
+.main-content {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  align-items: center;
+}
+
+.main-content-text {
+  grid-column: 1 / 2;
+  justify-self: end;
+  max-width: 570px;
+  h1 {
+    font-size: 3em;
+    line-height: 1.2;
+    color: $primary-text-color;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: $primary-text-color;
+    margin-bottom: 25px;
+  }
+}
+
+.main-content-image {
+  grid-column: 2 / 3;
+  padding: 50px;
+  display: block;
+  img {
+    max-width: 100%;
+    height: 60vh;
+  }
+}
+
+.email-box {
+  display: flex;
+  align-items: center;
+  input {
+    height: 40px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    border-radius: 1.4em;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+    width: 220px;
+    box-shadow: none;
+  }
+  a {
+    height: 40px;
+  }
+}
+
+.intro-content {
+  @extend .main-content;
+  h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+}
+
+.intro-content-text {
+  @extend .main-content-text;
+  .checklist {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .checklistitem {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+      i {
+        color: $secondary-color;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.intro-content-image {
+  @extend .main-content-image;
+}
+
+.intro-content-reverse {
+  @extend .intro-content;
+}
+
+.intro-content-image-reverse {
+  @extend .intro-content-image;
+  grid-column: 1 / 2;
+  grid-row: 1/2;
+  justify-self: end;
+}
+
+.intro-content-text-reverse {
+  @extend .intro-content-text;
+  grid-column: 2 / 3;
+  justify-self: start;
+  padding-left: 20px;
+}
+
+.gallary {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: $primary-text-color;
+  }
+
+  p {
+    font-size: 1.5em;
+    color: $primary-text-color;
+  }
+
+  .gallary-grid {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 60%;
+    margin: 30px 0px 60px 0px;
+    h2 {
+      font-size: 1.5em;
+      font-weight: 450;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .gallary-grid-item {
+      flex-grow: 1;
+      margin: 0px 20px;
+      flex: 0 0 33%;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+      .media {
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      .content {
+        padding: 30px;
+      }
+    }
+  }
+}
+
+footer {
+  padding: 100px 0px;
+  background-color: $secondary-color;
+}
